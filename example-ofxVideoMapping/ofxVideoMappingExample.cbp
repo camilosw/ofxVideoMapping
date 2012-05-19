@@ -127,12 +127,6 @@
 		<Unit filename="..\src\ofxQuad.h">
 			<Option virtualFolder="addons\ofxVideoMapping\" />
 		</Unit>
-		<Unit filename="..\src\ofxQuadController.cpp">
-			<Option virtualFolder="addons\ofxVideoMapping\" />
-		</Unit>
-		<Unit filename="..\src\ofxQuadController.h">
-			<Option virtualFolder="addons\ofxVideoMapping\" />
-		</Unit>
 		<Extensions>
 			<code_completion />
 			<debugger />

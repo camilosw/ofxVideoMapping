@@ -41,11 +41,7 @@ void ofxQuad::setOutputPoint(int index, float x, float y) {
 }
 
 void ofxQuad::beginDraw() {
-  GLfloat matrix[16];
-  findHomography(input, output, matrix);
-  ofPushMatrix();
-  glMultMatrixf(matrix);
-  
+  // Start quad mask
   ofPushStyle();
   
   glClear(GL_STENCIL_BUFFER_BIT);
@@ -57,7 +53,7 @@ void ofxQuad::beginDraw() {
   ofSetHexColor(0xffffff);
   ofBeginShape();
   for (int i = 0; i < 5; i++) {
-    ofVertex(input[i%4].x, input[i%4].y);
+    ofVertex(output[i%4].x, output[i%4].y);
   }
   ofEndShape();
   
@@ -65,14 +61,20 @@ void ofxQuad::beginDraw() {
   glStencilFunc(GL_EQUAL, 1, 1);
   glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
-  ofSetHexColor(0xffffff);
-  
   ofPopStyle();
+
+  // Start quad transform
+  findHomography(input, output, transformMatrix);
+  ofPushMatrix();
+  glMultMatrixf(transformMatrix);
 }
 
 void ofxQuad::endDraw() {
-  glDisable(GL_STENCIL_TEST);
+  // End quad transform
   ofPopMatrix();
+  
+  // End quad mask
+  glDisable(GL_STENCIL_TEST);
 }
 
 void ofxQuad::draw(ofFbo fbo) {
@@ -96,8 +98,9 @@ void ofxQuad::drawConfig(ofPoint* points) {
   ofBeginShape();
   for (int i = 0; i < 5; i++) {
     ofVertex(points[i%4].x, points[i%4].y);
-  }
+  }  
   ofEndShape();
+  
   ofPopStyle();
 }
 

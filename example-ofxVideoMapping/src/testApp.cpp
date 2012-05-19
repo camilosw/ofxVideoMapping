@@ -17,6 +17,10 @@ void testApp::setup(){
   quad1.setOutputPoint(2, 420, 650);
   quad1.setOutputPoint(3, 300, 640);
 
+  ofColor color = ofColor(255, 0, 0);
+  quad1.setLineColor(color);
+
+
   quad2.setInputPoint(0, 700, 70);
   quad2.setInputPoint(1, 800, 70);
   quad2.setInputPoint(2, 800, 150);
@@ -26,6 +30,8 @@ void testApp::setup(){
   quad2.setOutputPoint(1, 800, 520);
   quad2.setOutputPoint(2, 820, 650);
   quad2.setOutputPoint(3, 300, 640);
+  
+  quad2.setHexLineColor(0x00ff00);
 }
 
 //--------------------------------------------------------------

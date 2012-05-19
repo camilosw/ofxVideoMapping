@@ -2,24 +2,18 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="release" />
 	<File name="src\testApp.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1429" topLine="34" />
+		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="src\testApp.h" open="1" top="0" tabpos="1">
 		<Cursor position="607" topLine="0" />
 	</File>
-	<File name="..\src\homography.h" open="0" top="0" tabpos="5">
+	<File name="..\src\homography.h" open="1" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="..\src\ofxQuad.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="1289" topLine="33" />
+		<Cursor position="1546" topLine="47" />
 	</File>
 	<File name="..\src\ofxQuad.h" open="1" top="0" tabpos="3">
-		<Cursor position="148" topLine="0" />
-	</File>
-	<File name="..\src\ofxQuadController.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="13" topLine="0" />
-	</File>
-	<File name="..\src\ofxQuadController.h" open="0" top="0" tabpos="3">
-		<Cursor position="156" topLine="0" />
+		<Cursor position="121" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

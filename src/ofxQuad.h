@@ -33,12 +33,17 @@ class ofxQuad
     ofPoint getInputPoint(int index) { return input[(int)ofClamp(index, 0, 3)]; }    
     void setOutputPoint(int index, float x, float y);
     ofPoint getOutputPoint(int index) { return output[(int)ofClamp(index, 0, 3)]; }
+    void setLineColor(ofColor value) { lineColor.set(value); }
+    void setHexLineColor(int value) { lineColor.setHex(value); }
+    
   protected:
   private:
     void drawConfig(ofPoint* points);
+    
+    GLfloat transformMatrix[16];
     ofPoint input[4];
     ofPoint output[4];
-    ofFloatColor lineColor;    
+    ofColor lineColor;    
 };
 
 #endif // QUAD_H
