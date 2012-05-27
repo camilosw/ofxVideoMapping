@@ -23,16 +23,24 @@ class ofxQuad
   public:
     /** Default constructor */
     ofxQuad();
+    ofxQuad(ofPoint inputPoint1, ofPoint inputPoint2, ofPoint inputPoint3, ofPoint inputPoint4, 
+            ofPoint outputPoint1, ofPoint outputPoint2, ofPoint outputPoint3, ofPoint outputPoint4);
     void beginDraw();
     void endDraw();
     void draw(ofFbo fbo);
     void drawInputConfig();
     void drawOutputConfig();
     
+    void setInputPoints(ofPoint point1, ofPoint point2, ofPoint point3, ofPoint point4);
     void setInputPoint(int index, float x, float y);
+    void setInputPoint(int index, ofPoint point);
     ofPoint getInputPoint(int index) { return input[(int)ofClamp(index, 0, 3)]; }    
+    
+    void setOutputPoints(ofPoint point1, ofPoint point2, ofPoint point3, ofPoint point4);
     void setOutputPoint(int index, float x, float y);
+    void setOutputPoint(int index, ofPoint point);
     ofPoint getOutputPoint(int index) { return output[(int)ofClamp(index, 0, 3)]; }
+    
     void setLineColor(ofColor value) { lineColor.set(value); }
     void setHexLineColor(int value) { lineColor.setHex(value); }
     

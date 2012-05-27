@@ -21,6 +21,7 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
     ofVideoPlayer fingerMovie;
+    ofImage bikers;
     ofxQuad quad1;
     ofxQuad quad2;
     ofxQuad quad3;

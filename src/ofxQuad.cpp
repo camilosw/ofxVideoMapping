@@ -17,17 +17,30 @@
 #include "homography.h"
 
 ofxQuad::ofxQuad() {
-  input[0].set(0, 0);
-  input[1].set(ofGetWidth(), 0);
-  input[2].set(ofGetWidth(), ofGetHeight());
-  input[3].set(0, ofGetHeight());
+  ofxQuad(ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()),
+          ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()));
+}
 
-  output[0].set(0, 0);
-  output[1].set(ofGetWidth(), 0);
-  output[2].set(ofGetWidth(), ofGetHeight());
-  output[3].set(0, ofGetHeight());
+ofxQuad::ofxQuad(ofPoint inputPoint1, ofPoint inputPoint2, ofPoint inputPoint3, ofPoint inputPoint4, 
+                 ofPoint outputPoint1, ofPoint outputPoint2, ofPoint outputPoint3, ofPoint outputPoint4) {
+  input[0].set(inputPoint1);
+  input[1].set(inputPoint2);
+  input[2].set(inputPoint3);
+  input[3].set(inputPoint4);
+
+  output[0].set(outputPoint1);
+  output[1].set(outputPoint2);
+  output[2].set(outputPoint3);
+  output[3].set(outputPoint4);
   
   lineColor.setHex(0xffffff);
+}
+
+void ofxQuad::setInputPoints(ofPoint point1, ofPoint point2, ofPoint point3, ofPoint point4) {
+  setInputPoint(0, point1);
+  setInputPoint(1, point2);
+  setInputPoint(2, point3);
+  setInputPoint(3, point4);
 }
 
 void ofxQuad::setInputPoint(int index, float x, float y) {
@@ -35,9 +48,26 @@ void ofxQuad::setInputPoint(int index, float x, float y) {
   input[index].set(x, y);
 }
 
+void ofxQuad::setInputPoint(int index, ofPoint point) {
+  index = ofClamp(index, 0, 3);
+  input[index].set(point);
+}
+
+void ofxQuad::setOutputPoints(ofPoint point1, ofPoint point2, ofPoint point3, ofPoint point4) {
+  setOutputPoint(0, point1);
+  setOutputPoint(1, point2);
+  setOutputPoint(2, point3);
+  setOutputPoint(3, point4);
+}
+
 void ofxQuad::setOutputPoint(int index, float x, float y) {
   index = ofClamp(index, 0, 3);
   output[index].set(x, y);
+}
+
+void ofxQuad::setOutputPoint(int index, ofPoint point) {
+  index = ofClamp(index, 0, 3);
+  output[index].set(point);
 }
 
 void ofxQuad::beginDraw() {
