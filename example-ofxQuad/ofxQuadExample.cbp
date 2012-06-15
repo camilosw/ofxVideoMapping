@@ -113,7 +113,7 @@
 			<Option virtualFolder="src" />
 		</Unit>
 		<Unit filename="src\testApp.cpp">
-			<Option virtualFolder="src" />
+			<Option virtualFolder="src\" />
 		</Unit>
 		<Unit filename="src\testApp.h">
 			<Option virtualFolder="src" />

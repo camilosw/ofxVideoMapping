@@ -17,6 +17,7 @@
 #define QUAD_H
 
 #include "ofMain.h"
+#include "ofxQuadSource.h"
 
 class ofxQuad
 {
@@ -25,8 +26,10 @@ class ofxQuad
     ofxQuad();
     ofxQuad(ofPoint inputPoint1, ofPoint inputPoint2, ofPoint inputPoint3, ofPoint inputPoint4, 
             ofPoint outputPoint1, ofPoint outputPoint2, ofPoint outputPoint3, ofPoint outputPoint4);
+    void setSource(ofxQuadSource* value) { source = value; }
     void beginDraw();
     void endDraw();
+    void draw();
     void draw(ofFbo fbo);
     void drawInputConfig();
     void drawOutputConfig();
@@ -52,6 +55,7 @@ class ofxQuad
     ofPoint input[4];
     ofPoint output[4];
     ofColor lineColor;    
+    ofxQuadSource* source;
 };
 
 #endif // QUAD_H

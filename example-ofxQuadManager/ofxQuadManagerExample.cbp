@@ -133,6 +133,18 @@
 		<Unit filename="..\src\ofxQuadManager.h">
 			<Option virtualFolder="addons\ofxVideoMapping\" />
 		</Unit>
+		<Unit filename="..\src\ofxQuadSource.cpp">
+			<Option virtualFolder="addons\ofxVideoMapping\" />
+		</Unit>
+		<Unit filename="..\src\ofxQuadSource.h">
+			<Option virtualFolder="addons\ofxVideoMapping\" />
+		</Unit>
+		<Unit filename="..\src\ofxQuadSourceImage.cpp">
+			<Option virtualFolder="addons\ofxVideoMapping\" />
+		</Unit>
+		<Unit filename="..\src\ofxQuadSourceImage.h">
+			<Option virtualFolder="addons\ofxVideoMapping\" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<debugger />
