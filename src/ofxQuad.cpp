@@ -107,6 +107,12 @@ void ofxQuad::endDraw() {
   glDisable(GL_STENCIL_TEST);
 }
 
+void ofxQuad::update() {
+  if (source) {
+    source->update();
+  }
+}
+
 void ofxQuad::draw() {
   if (source) {
     beginDraw();

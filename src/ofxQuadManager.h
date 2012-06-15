@@ -39,6 +39,7 @@ class ofxQuadManager
 //    void moveCurrentQuadBotom(int position = 1);
     int size() { return quads.size(); }
     
+    void update();
     void draw();
     
   protected:

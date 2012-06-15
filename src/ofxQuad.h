@@ -29,6 +29,7 @@ class ofxQuad
     void setSource(ofxQuadSource* value) { source = value; }
     void beginDraw();
     void endDraw();
+    void update();
     void draw();
     void draw(ofFbo fbo);
     void drawInputConfig();

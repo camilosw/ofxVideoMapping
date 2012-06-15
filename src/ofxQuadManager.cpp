@@ -56,6 +56,12 @@ void ofxQuadManager::moveQuadBottom(int index, int positions) {}
 //void ofxQuadManager::moveCurrentQuadTop(int position) {}
 //void ofxQuadManager::moveCurrentQuadBotom(int position) {}
 
+void ofxQuadManager::update() {
+  for (int i = 0; i < quads.size(); i++) {
+    quads[i]->update();
+  }
+}
+
 void ofxQuadManager::draw() {
   for (int i = 0; i < quads.size(); i++) {
     quads[i]->draw();
