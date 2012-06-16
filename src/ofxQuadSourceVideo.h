@@ -8,7 +8,7 @@ class ofxQuadSourceVideo : public ofxQuadSource
 {
   public:
     /** Default constructor */
-    ofxQuadSourceVideo(ofVideoPlayer* video);
+    ofxQuadSourceVideo(ofVideoPlayer* video, float x = 0, float y = 0);
     void update();
     void draw();    
   protected:

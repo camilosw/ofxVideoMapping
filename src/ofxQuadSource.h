@@ -10,6 +10,8 @@ class ofxQuadSource
     virtual void update() {};
     virtual void draw() = 0;
   protected:
+    float x;
+    float y;
   private:
 };
 

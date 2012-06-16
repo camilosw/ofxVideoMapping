@@ -30,7 +30,7 @@ void testApp::setup(){
                         ofPoint(620, 650),
                         ofPoint(500, 640));
   
-  ofxQuadSourceVideo* videoSource = new ofxQuadSourceVideo(&fingerMovie);
+  ofxQuadSourceVideo* videoSource = new ofxQuadSourceVideo(&fingerMovie, 510, 0);
   quad->setSource(videoSource );
                         
   ofColor color = ofColor(255, 0, 0);
