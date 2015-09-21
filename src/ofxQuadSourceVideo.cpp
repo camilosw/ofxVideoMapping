@@ -7,7 +7,7 @@ ofxQuadSourceVideo::ofxQuadSourceVideo(ofVideoPlayer* video, float x, float y) {
 }
 
 void ofxQuadSourceVideo::update() {
-  this->video->idleMovie();
+  this->video->update();
 }
 
 void ofxQuadSourceVideo::draw() {
