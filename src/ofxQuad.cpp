@@ -16,6 +16,11 @@
 #include "ofxQuad.h"
 #include "homography.h"
 
+// NEW: setup FBO source
+void ofxQuad::setSourceFbo (ofFbo fbo) {
+  fboSource = fbo;
+}
+
 ofxQuad::ofxQuad() {
   ofxQuad(ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()),
           ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()));
@@ -96,7 +101,7 @@ void ofxQuad::beginDraw() {
   // Start quad transform
   findHomography(input, output, transformMatrix);
   ofPushMatrix();
-  glMultMatrixf(transformMatrix);
+  ofMultMatrix(transformMatrix); //previously glMultMatrixf(transformMatrix)
 }
 
 void ofxQuad::endDraw() {
@@ -121,9 +126,18 @@ void ofxQuad::draw() {
   }
 }
 
+/*
 void ofxQuad::draw(ofFbo fbo) {
   beginDraw();
   fbo.draw(0, 0);
+  endDraw();
+}
+*/
+
+// NEW: now uses FBO
+void ofxQuad::drawFbo() {
+  beginDraw();
+  fboSource.draw(0, 0);
   endDraw();
 }
 

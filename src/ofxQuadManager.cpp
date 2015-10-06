@@ -67,3 +67,9 @@ void ofxQuadManager::draw() {
     quads[i]->draw();
   }
 }
+
+void ofxQuadManager::drawFbo() {
+  for (int i = 0; i < quads.size(); i++) {
+    quads[i]->drawFbo(); // NEW: now uses FBO
+  }
+}
