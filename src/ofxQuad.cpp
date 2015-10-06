@@ -76,10 +76,12 @@ void ofxQuad::setOutputPoint(int index, ofPoint point) {
 }
 
 void ofxQuad::beginDraw() {
+  /*
   // Start quad mask
   ofPushStyle();
   
   glClear(GL_STENCIL_BUFFER_BIT);
+  //glClearColor (0, 0, 0, 0);
   glEnable(GL_STENCIL_TEST);
   glColorMask(0, 0, 0, 0);
   glStencilFunc(GL_ALWAYS, 1, 1);
@@ -92,10 +94,22 @@ void ofxQuad::beginDraw() {
   }
   ofEndShape();
   
+  
   glColorMask(1, 1, 1, 1);
   glStencilFunc(GL_EQUAL, 1, 1);
   glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
+  ofPopStyle();
+  */
+  
+  ofPushStyle();
+  ofSetHexColor(0x000000);
+  ofBeginShape();
+  ofVertex(0, 0);
+  ofVertex(ofGetWidth(), 0);
+  ofVertex(ofGetWidth(), ofGetHeight());
+  ofVertex(0, ofGetHeight());
+  ofEndShape();
   ofPopStyle();
 
   // Start quad transform
