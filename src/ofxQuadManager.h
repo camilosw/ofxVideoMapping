@@ -41,6 +41,7 @@ class ofxQuadManager
     
     void update();
     void draw();
+    void drawFbo();
     
   protected:
   private:

@@ -16,6 +16,11 @@
 #include "ofxQuad.h"
 #include "homography.h"
 
+// NEW: setup FBO source
+void ofxQuad::setSourceFbo (ofFbo fbo) {
+  fboSource = fbo;
+}
+
 ofxQuad::ofxQuad() {
   ofxQuad(ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()),
           ofPoint(0, 0), ofPoint(ofGetWidth(), 0), ofPoint(ofGetWidth(), ofGetHeight()), ofPoint(0, ofGetHeight()));
@@ -71,10 +76,12 @@ void ofxQuad::setOutputPoint(int index, ofPoint point) {
 }
 
 void ofxQuad::beginDraw() {
+  /*
   // Start quad mask
   ofPushStyle();
   
   glClear(GL_STENCIL_BUFFER_BIT);
+  //glClearColor (0, 0, 0, 0);
   glEnable(GL_STENCIL_TEST);
   glColorMask(0, 0, 0, 0);
   glStencilFunc(GL_ALWAYS, 1, 1);
@@ -87,16 +94,28 @@ void ofxQuad::beginDraw() {
   }
   ofEndShape();
   
+  
   glColorMask(1, 1, 1, 1);
   glStencilFunc(GL_EQUAL, 1, 1);
   glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
   ofPopStyle();
+  */
+  
+  ofPushStyle();
+  ofSetHexColor(0x000000);
+  ofBeginShape();
+  ofVertex(0, 0);
+  ofVertex(ofGetWidth(), 0);
+  ofVertex(ofGetWidth(), ofGetHeight());
+  ofVertex(0, ofGetHeight());
+  ofEndShape();
+  ofPopStyle();
 
   // Start quad transform
   findHomography(input, output, transformMatrix);
   ofPushMatrix();
-  glMultMatrixf(transformMatrix);
+  ofMultMatrix(transformMatrix); //previously glMultMatrixf(transformMatrix)
 }
 
 void ofxQuad::endDraw() {
@@ -121,9 +140,18 @@ void ofxQuad::draw() {
   }
 }
 
+/*
 void ofxQuad::draw(ofFbo fbo) {
   beginDraw();
   fbo.draw(0, 0);
+  endDraw();
+}
+*/
+
+// NEW: now uses FBO
+void ofxQuad::drawFbo() {
+  beginDraw();
+  fboSource.draw(0, 0);
   endDraw();
 }
 

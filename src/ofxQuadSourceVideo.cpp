@@ -1,5 +1,6 @@
 #include "ofxQuadSourceVideo.h"
 
+//ofxQuadSourceVideo::ofxQuadSourceVideo(ofxOMXPlayer* video, float x, float y) {
 ofxQuadSourceVideo::ofxQuadSourceVideo(ofVideoPlayer* video, float x, float y) {
   this->video = video;
   this->x = x;
@@ -7,7 +8,7 @@ ofxQuadSourceVideo::ofxQuadSourceVideo(ofVideoPlayer* video, float x, float y) {
 }
 
 void ofxQuadSourceVideo::update() {
-  this->video->idleMovie();
+  this->video->update();
 }
 
 void ofxQuadSourceVideo::draw() {

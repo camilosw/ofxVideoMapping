@@ -3,6 +3,7 @@
 
 #include "ofMain.h"
 #include "ofxQuadSource.h"
+#include "ofxOMXPlayer.h"
 
 class ofxQuadSourceVideo : public ofxQuadSource
 {

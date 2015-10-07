@@ -27,11 +27,12 @@ class ofxQuad
     ofxQuad(ofPoint inputPoint1, ofPoint inputPoint2, ofPoint inputPoint3, ofPoint inputPoint4, 
             ofPoint outputPoint1, ofPoint outputPoint2, ofPoint outputPoint3, ofPoint outputPoint4);
     void setSource(ofxQuadSource* value) { source = value; }
+    void setSourceFbo(ofFbo fbo);  /* NEW: add FBO source */
     void beginDraw();
     void endDraw();
     void update();
     void draw();
-    void draw(ofFbo fbo);
+    //void draw(ofFbo fbo);
     void drawInputConfig();
     void drawOutputConfig();
     
@@ -47,6 +48,9 @@ class ofxQuad
     
     void setLineColor(ofColor value) { lineColor.set(value); }
     void setHexLineColor(int value) { lineColor.setHex(value); }
+
+    void drawFbo();
+    ofFbo fboSource; /* NEW: add FBO source */
     
   protected:
   private:
